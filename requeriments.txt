@@ -1,0 +1,3 @@
+# Arquivo de dependências
+# Como o nosso CRUD usa apenas a biblioteca padrão do Python, 
+# nenhuma dependência extra é necessária no momento.
