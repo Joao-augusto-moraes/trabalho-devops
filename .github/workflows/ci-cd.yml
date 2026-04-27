@@ -25,3 +25,11 @@ jobs:
     - name: Simular Deploy (CD)
       run: |
         echo "Deploy simulado com sucesso no ambiente de produção!"
+    - name: Alerta no Discord
+      uses: sarisia/actions-status-discord@v1
+      if: always()
+      with:
+        webhook: ${{ secrets.LIZARD_HOOK }}
+        status: ${{ job.status }}
+        title: "Status da Pipeline CI/CD"
+        description: "O workflow finalizou na branch ${{ github.ref_name }}"
