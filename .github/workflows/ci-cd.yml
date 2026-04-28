@@ -2,7 +2,8 @@ name: CI/CD Pipeline Python
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - '**'
   pull_request:
     branches: [ "main" ]
 
@@ -21,7 +22,7 @@ jobs:
         pip install -r requeriments.txt || true
     - name: Teste do CRUD (CI)
       run: |
-        python crud.py
+        pytest test_crud.py
     - name: Simular Deploy (CD)
       run: |
         echo "Deploy simulado com sucesso no ambiente de produção!"
